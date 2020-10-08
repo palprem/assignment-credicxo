@@ -74,6 +74,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+AUTH_USER_MODEL = 'users.Users'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

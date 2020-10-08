@@ -1,3 +1,6 @@
 .dist
 backend/*/__pycache__
 backend/*/migrations/__pycache__
+backend/*/migrations/000*
+backend/*/migrations/00*
+backend/*/migrations/0*
