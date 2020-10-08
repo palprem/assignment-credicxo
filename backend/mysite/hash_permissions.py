@@ -1,6 +1,6 @@
 from rest_framework import permissions
 
-class IsTeacherUser(permissions.BasePermission):
+class IsTeacherAndSuperUser(permissions.BasePermission):
     def has_permission(self, request, view):
         try:
             return bool(request.user and (request.user.is_teacher or request.user.is_superuser))

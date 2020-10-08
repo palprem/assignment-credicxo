@@ -12,7 +12,7 @@ from .serializers import (
 )
 from rest_framework.response import Response
 from users.models import Users
-from mysite.hash_permissions import IsTeacherUser
+from mysite.hash_permissions import IsTeacherAndSuperUser
 from .models import Teacher
 
 
@@ -50,11 +50,11 @@ class CreateTeacherApiViews(APIView):
         return Response({"status":False,"error":serializer_class.errors})
 
 class ListOfTeacherApiViews(APIView):
-    permission_classes = (IsTeacherUser,)
+    permission_classes = (IsTeacherAndSuperUser,)
     def get(self,request):
         data = Teacher.objects.all()
         serializer_class = CreateTeacherProfileSerializer(data, many=True)
-        return Response ({"status":True,"msg":"All customer!..","data":serializer_class.data})
+        return Response ({"status":True,"msg":"All teacher!..","data":serializer_class.data})
 
 # {
 #     "email":"prem@gmail.com",
